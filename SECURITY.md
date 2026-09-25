@@ -1,6 +1,6 @@
 # Security and privacy
 
-This project has no hosted backend and does not request credentials. Its Python utility does not make network requests. An AI host and an authenticated Notion connector are separate systems with their own data-handling policies.
+This project has no hosted backend or website credential collection. The legacy formatter and Markdown export run offline. The optional terminal tutor contacts the AI endpoint the user configures; optional caption retrieval contacts the video service. An AI host and an authenticated Notion connector have their own data-handling policies.
 
 Do not open a public issue containing real lesson data, account tokens, private page URLs, contact information, or an unredacted screenshot. For ordinary bugs, use a minimal synthetic reproduction. If GitHub's private vulnerability reporting is available for this repository, use it for sensitive security findings; otherwise report only a non-sensitive summary and request a private channel.
 

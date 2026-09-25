@@ -1,7 +1,14 @@
 interface:
-  display_name: "LessonPair · 영상으로 영어 배우기"
-  short_description: "좋아하는 영상 하나로 연습하고 내 영어로 다시 설명하는 학습 가이드"
-  default_prompt: "Use $lesson-pair to help me explain this English video in my own words, one small step at a time."
-
+  display_name: LessonPair · 영상으로 영어 배우기
+  short_description: 좋아하는 영상 하나로 연습하고 내 영어로 다시 설명하는 학습 가이드
+  default_prompt: Use $lesson-pair to help me explain this English video in my own
+    words, one small step at a time.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
 policy:
   allow_implicit_invocation: true
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas

@@ -16,7 +16,15 @@ def build(check=False):
                 'homepage': 'https://sjskoko.github.io/lesson-pair/',
                 'repository': 'https://github.com/sjskoko/lesson-pair', 'license': 'MIT',
                 'keywords': ['english-learning', 'video-learning', 'chatgpt', 'agent-skills', 'bring-your-own-ai'],
-                'description': 'Explain a video you love in your own English. Guided practice, your own before/after, optional Notion.'}
+                'description': 'Explain a video you love in your own English. Guided practice, your own before/after, optional Notion.',
+                'homepage': 'https://sjskoko.github.io/lesson-pair/', 'repository': 'https://github.com/sjskoko/lesson-pair',
+                'license': 'MIT', 'keywords': ['english-learning', 'video-learning', 'chatgpt', 'agent-skills', 'bring-your-own-ai'],
+                'extensions': {'com.openai': {'interface': {
+                    'displayName': 'LessonPair', 'shortDescription': 'One video. Your AI. Your own English.',
+                    'longDescription': 'Guided English practice from a video: try, practice what you need, retry, and compare your own answers. Notion is optional.',
+                    'category': 'Productivity', 'websiteURL': 'https://sjskoko.github.io/lesson-pair/',
+                    'privacyPolicyURL': 'https://github.com/sjskoko/lesson-pair/blob/main/SECURITY.md',
+                    'defaultPrompt': ['Help me explain this English video in my own words, one question at a time.']}}}}
     expected[dest / 'plugin.json'] = (json.dumps(manifest, indent=2) + '\n').encode()
     marketplace = {'name': 'lesson-pair-marketplace', 'interface': {'displayName': 'LessonPair'},
                    'plugins': [{'name': 'lesson-pair', 'source': {'source': 'local', 'path': './plugins/lesson-pair'},

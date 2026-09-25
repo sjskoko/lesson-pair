@@ -14,7 +14,7 @@ Preserve the first attempt exactly. Identify whether the blocker is understandin
 
 A target expression with a meaning explanation is feedback, not a full model answer. Reserve complete sample answers for requested or needed assistance.
 
-For each gap, give a concise explanation in the learner's language, then ask one relevant question. Accept reasonable alternatives. If stuck: give a meaning cue; then a sentence starter if needed; only then a clearly labeled example. Do not mark copied model text as independent production. If source comprehension is uncertain, revisit one source sentence before drilling grammar.
+For each gap, give a concise explanation in the learner's language, then ask one relevant question. A short expression explanation is feedback; a complete answer is an example and must be labeled. Accept reasonable alternatives. If stuck: give a meaning cue; then a sentence starter if needed; only then a clearly labeled example. Do not mark copied model text as independent production. If source comprehension is uncertain, revisit one source sentence before drilling grammar.
 
 ## Independent retry
 

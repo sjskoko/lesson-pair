@@ -25,13 +25,13 @@ In a Codex installation with plugin marketplace support:
 codex plugin marketplace add sjskoko/lesson-pair --ref main
 ```
 
-Then open a supported plugin interface, find the **LessonPair** marketplace, and install **lesson-pair**. Check that the skill appears before beginning a lesson. Adding a marketplace registers a source; it does not install the plugin by itself.
+Then restart the ChatGPT desktop app, open its Plugins Directory, choose the **LessonPair** marketplace, and install **lesson-pair**. Use a trusted local checkout when following the repository marketplace route. Check that the skill appears before beginning a lesson. Adding a marketplace registers a source; it does not install the plugin by itself.
 
 For a reproducible version after the release is published, use `--ref v0.2.0`. For local development, clone this repository and follow the host's local marketplace workflow. Never assume that a CLI source addition propagates automatically to every ChatGPT client/account.
 
 ## ChatGPT availability
 
-ChatGPT supports plugins that package skills, subject to client, account, and workspace controls. Use the repository/workspace installation flow available in your environment. If your interface only shows the public plugin directory and has no repository or workspace import, there is no universal one-click installation link for this repository yet. Use the portable workflow below while public-directory publication is pending.
+ChatGPT supports plugins that package skills, subject to client, account, and workspace controls. Use the repository/workspace installation flow available in your environment. If your interface only shows the public plugin directory and has no repository or workspace import, there is no universal one-click installation link for this repository yet. Use the portable workflow below until a public-directory version becomes available. No submission is currently pending.
 
 **Status: package developed; not submitted to or approved for OpenAI's public plugin directory.** Directory publication and workspace distribution are separate from a public GitHub release. We do not claim a completed host installation based on package validation alone.
 

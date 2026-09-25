@@ -1,29 +1,32 @@
-# One video → your own explanation
+# One video, your own English
 
-Everything below is fabricated for demonstration. This is not a learner result, a source transcript from a real video, or proof of effectiveness.
+**Fictional scripted demonstration.** All learner answers and source text here were invented. This is not a measured result or a live AI session.
 
-**Source excerpt:** Urban trees provide shade on hot days. Their roots need enough room to grow.
+Source: [synthetic passage](video.synthetic.txt).
 
-**AI asks:** In 1–3 sentences, what was the main idea?
+**Tutor:** In 1–3 English sentences, what was the main idea?
 
-**Fictional learner first attempt:** Trees makes shade. Roots need place.
+**Learner — first attempt:** Trees makes shade. Roots need place.
 
-**AI feedback:** “Room to grow” means space needed for growth. What do roots need?
+**AI feedback:** You identified the two ideas. “Trees” takes “make,” and “provide shade” is a useful phrase. “Room to grow” means enough space for growth. What do roots need?
 
-**Fictional learner practice:** Roots need room to grow.
+**Learner — practice:** Roots need room to grow.
 
-**AI asks:** Look away from the examples. Explain the main idea again.
+**Tutor:** Look away from the examples and explain the passage again. A few sentences are enough.
 
-**Fictional learner retry:** Trees provide shade. Their roots need room to grow.
+**Learner — retry:** Trees provide shade. Their roots need room to grow.
 
-**Evidence card:** Both ideas are expressed in the retry. The retry uses “provide shade” and “room to grow.” These are observations about two supplied samples; independence is unverified. No proficiency score or learning gain is inferred.
+**Assistance:** Unknown in this scripted demonstration. Reusing the example does not prove independent recall.
 
-**Later recall:** Explain why a new community garden needs enough space for plants. Try it before opening an answer.
+**Comparison:** The later sample uses “provide shade” and “room to grow.” It conveys both source ideas. This comparison does not establish durable learning or a proficiency level.
 
-<details><summary>Example answer (AI-written, not learner evidence)</summary>
+**Later recall:** You are choosing a pot for a balcony plant. Explain why its roots need space.
 
-Plants need room to grow, and trees can provide shade for visitors.
+<details><summary>Example answer — look only after trying</summary>
 
+The roots need room to grow, so I would choose a larger pot.
+
+This is an AI-style model answer, not learner evidence.
 </details>
 
-The real tool waits for the learner's retry instead of filling it in. [Start a session](../docs/usage.md). The [legacy paired-page sample](demo.md) is still available.
+[Get started](../docs/usage.md) · [Legacy paired-page demo](demo.md)
