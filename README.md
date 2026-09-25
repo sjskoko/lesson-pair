@@ -1,18 +1,29 @@
-<p align="center"><img src="docs/overview.svg" alt="LessonPair: one language lesson, two connected study pages" width="920"></p>
-
 <h1 align="center">LessonPair</h1>
-<p align="center"><strong>Watch. Talk. Rewrite. Keep the learning connected.</strong></p>
+<p align="center"><strong>Turn your English mistakes into your next practice session.</strong></p>
+<p align="center">A Notion workflow for the moment after “Oh, I get it.”</p>
+<p align="center"><a href="examples/demo.md"><img src="docs/overview.svg" alt="Fictional example: Trees gives shade. → Trees give shade. → Rewrite it from memory. Open the clickable demo." width="920"></a></p>
+<p align="center"><strong><a href="examples/demo.md">Try the sample — no install</a></strong> · <a href="#use-the-skill-with-your-assistant">Install the skill</a> · <a href="README.ko.md">한국어</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2563eb" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776ab" alt="Python 3.10 or later">
   <img src="https://img.shields.io/badge/runtime_dependencies-0-16a34a" alt="Zero third-party runtime dependencies">
   <a href="https://github.com/sjskoko/lesson-pair/actions/workflows/check.yml"><img src="https://github.com/sjskoko/lesson-pair/actions/workflows/check.yml/badge.svg" alt="Checks"></a>
 </p>
-<p align="center"><a href="README.ko.md">한국어</a> · <a href="#try-it-in-60-seconds">Quick start</a> · <a href="examples/README.md">Synthetic example</a> · <a href="docs/usage.md">Installation & GPT use</a></p>
+**Keep the sentence you wrote. See what changed. Try again with the answer hidden.** LessonPair connects a video's preparation page to your lesson's writing, feedback, and review page in Notion.
 
-**An open agent skill that turns a video and a live language lesson into two linked Notion pages: preparation and review.** Keep the original writing, understand the corrections, and practice again without losing the connection to the source.
+Designed for English study with Korean explanations. It is an open agent skill, paired page templates, and an offline formatter. A connected AI assistant handles language understanding; the Python tool formats material you supply.
 
-Designed for English study with Korean explanations; the workflow can be adapted to other languages. The included renderer formats supplied material offline. A connected AI assistant handles understanding and corrections.
+## See the loop in one sentence
+
+*Newly written fictional material, not a learner record or a product screenshot.*
+
+| Keep the original | See the correction | Use it again |
+| --- | --- | --- |
+| Trees gives shade. | Trees **give** shade. | Hide the answer. Write “나무는 그늘을 제공합니다.” in English. |
+
+The [clickable sample](examples/demo.md) has linked preparation and review sections, hidden answers, and an unfinished sentence left unresolved. No account, install, or API key is needed to view it. It is a GitHub preview of the workflow; it does not connect to Notion.
+
+**Want this for your next lesson? [Install LessonPair](#use-the-skill-with-your-assistant).** Star this repository to keep it handy, or [suggest one workflow improvement](https://github.com/sjskoko/lesson-pair/issues/new?template=feature_request.yml).
 
 ## What you get
 
@@ -35,7 +46,9 @@ Study materials and lesson corrections often end up in different places. LessonP
 - **Focused context:** a small skill entry point loads references only when needed.
 - **Offline utilities:** standard-library Python, no API key, telemetry, or network calls.
 
-## Try it in 60 seconds
+<a id="try-it-in-60-seconds"></a>
+
+## Run the offline demo
 
 Requires Python 3.10+ and Git. The example is entirely fictional.
 
@@ -90,6 +103,6 @@ python3 -m unittest discover -s tests -v
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for small, useful contributions: clearer examples, additional languages, and formatting regressions. See [SECURITY.md](SECURITY.md) before reporting sensitive problems.
 
-If this helps your study routine, a star helps others discover it. Share improvements and **synthetic** examples through issues—never private lesson screenshots.
+Sharing the workflow? Use the [short introductions and preview image](docs/launch.md). Share improvements and **synthetic** examples through issues—never private lesson screenshots.
 
 MIT licensed. Independent community project; not affiliated with OpenAI or Notion.
