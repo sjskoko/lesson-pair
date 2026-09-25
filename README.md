@@ -9,6 +9,7 @@
   <img src="https://img.shields.io/badge/runtime_dependencies-0-16a34a" alt="Zero third-party runtime dependencies">
   <a href="https://github.com/sjskoko/lesson-pair/actions/workflows/check.yml"><img src="https://github.com/sjskoko/lesson-pair/actions/workflows/check.yml/badge.svg" alt="Checks"></a>
 </p>
+
 **Keep the sentence you wrote. See what changed. Try again with the answer hidden.** LessonPair connects a video's preparation page to your lesson's writing, feedback, and review page in Notion.
 
 Designed for English study with Korean explanations. It is an open agent skill, paired page templates, and an offline formatter. A connected AI assistant handles language understanding; the Python tool formats material you supply.
