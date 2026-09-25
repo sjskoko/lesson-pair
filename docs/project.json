@@ -1,0 +1,30 @@
+{
+  "name": "LessonPair",
+  "slug": "lesson-pair",
+  "description": "Open-source Notion English lesson notes skill with paired preparation and review pages.",
+  "homepage": "https://sjskoko.github.io/lesson-pair/",
+  "repository": "https://github.com/sjskoko/lesson-pair",
+  "license": "MIT",
+  "languages": [
+    "en",
+    "ko"
+  ],
+  "skill_entrypoint": "https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/SKILL.md",
+  "install_directory": "https://github.com/sjskoko/lesson-pair/tree/main/skills/lesson-pair",
+  "documentation": {
+    "en": "https://sjskoko.github.io/lesson-pair/guide/",
+    "ko": "https://sjskoko.github.io/lesson-pair/ko/guide/",
+    "index": "https://sjskoko.github.io/lesson-pair/llms.txt",
+    "full_text": "https://sjskoko.github.io/lesson-pair/llms-full.txt"
+  },
+  "requirements": {
+    "offline_formatter": "Python >= 3.10",
+    "ai_workflow": "Compatible skill host; authorized Notion integration for page writes"
+  },
+  "limitations": [
+    "No bundled transcription or automatic speech scoring",
+    "Offline formatter does not generate corrections or write to Notion",
+    "AI execution uses model tokens and host limits",
+    "All public examples are synthetic"
+  ]
+}

@@ -1,8 +1,8 @@
-<h1 align="center">LessonPair</h1>
+<h1 align="center">LessonPair — Notion English Lesson Notes</h1>
 <p align="center"><strong>Turn your English mistakes into your next practice session.</strong></p>
-<p align="center">A Notion workflow for the moment after “Oh, I get it.”</p>
+<p align="center">An open-source agent skill for English writing corrections and recall practice in Notion.</p>
 <p align="center"><a href="examples/demo.md"><img src="docs/overview.svg" alt="Fictional example: Trees gives shade. → Trees give shade. → Rewrite it from memory. Open the clickable demo." width="920"></a></p>
-<p align="center"><strong><a href="examples/demo.md">Try the sample — no install</a></strong> · <a href="#use-the-skill-with-your-assistant">Install the skill</a> · <a href="README.ko.md">한국어</a></p>
+<p align="center"><strong><a href="https://sjskoko.github.io/lesson-pair/">Website & live example</a></strong> · <a href="examples/demo.md">GitHub demo</a> · <a href="#use-the-skill-with-your-assistant">Install the skill</a> · <a href="README.ko.md">한국어</a></p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2563eb" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776ab" alt="Python 3.10 or later">
@@ -107,3 +107,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for small, useful contributions: clearer 
 Sharing the workflow? Use the [short introductions and preview image](docs/launch.md). Share improvements and **synthetic** examples through issues—never private lesson screenshots.
 
 MIT licensed. Independent community project; not affiliated with OpenAI or Notion.
+
+## Documentation and AI entry points
+
+[English website](https://sjskoko.github.io/lesson-pair/) · [한국어 소개](https://sjskoko.github.io/lesson-pair/ko/) · [Setup guide](https://sjskoko.github.io/lesson-pair/guide/) · [AI document index](https://sjskoko.github.io/lesson-pair/llms.txt)
+
+For direct agent retrieval, start with [raw SKILL.md](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/SKILL.md), then read its references only as needed. The index improves navigation; search ranking, AI citations, and installation are not guaranteed. See [documentation maintenance](docs/discovery.md).

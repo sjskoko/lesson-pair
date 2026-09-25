@@ -1,4 +1,4 @@
-# LessonPair
+# LessonPair — 노션 영어 학습·수업 정리 스킬
 
 ## 교정받은 영어, 다음 수업에서도 꺼내 쓰세요.
 
@@ -6,7 +6,7 @@
 
 [![원문에서 교정, 다시 쓰기로 이어지는 가상 예시](docs/overview.svg)](examples/demo.md)
 
-**[설치 없이 예시 체험하기](examples/demo.md)** · [스킬 설치](#gptcodex에서-사용하기) · [English](README.md)
+**[한국어 홈페이지·예시 체험](https://sjskoko.github.io/lesson-pair/ko/)** · [GitHub 예시](examples/demo.md) · [스킬 설치](#gptcodex에서-사용하기) · [English](README.md)
 
 | 내가 쓴 문장 | 교정한 문장 | 다음 연습 |
 | --- | --- | --- |
@@ -60,3 +60,9 @@ python3 skills/lesson-pair/scripts/lesson_pair.py check output/demo/02-review.no
 공개 예시는 모두 새로 만든 가상 자료입니다. 실제 학습 기록·연락처·개인 노션 주소는 포함하지 않습니다. 자신의 학습 기록은 공개 저장소에 올리지 마세요.
 
 [공유용 소개문과 이미지](docs/launch.md) · [기여 안내](CONTRIBUTING.md) · [MIT 라이선스](LICENSE)
+
+## 문서와 AI 진입점
+
+[한국어 설치 가이드](https://sjskoko.github.io/lesson-pair/ko/guide/) · [English website](https://sjskoko.github.io/lesson-pair/) · [AI용 문서 색인](https://sjskoko.github.io/lesson-pair/llms.txt) · [스킬 원문](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/SKILL.md)
+
+AI는 짧은 스킬 원문부터 읽고 필요한 참고 문서만 가져올 수 있습니다. 텍스트 색인이 검색 순위·AI 인용·자동 설치를 보장하지는 않습니다.

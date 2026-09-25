@@ -1,5 +1,7 @@
 # Share LessonPair
 
+Share the live demo: [English](https://sjskoko.github.io/lesson-pair/) · [한국어](https://sjskoko.github.io/lesson-pair/ko/). These pages include installation links and public synthetic examples. See [search and AI discovery maintenance](discovery.md) for measurement and indexing limits.
+
 Lead with the correction-to-practice example. Link to the [clickable demo](../examples/demo.md) so readers can try the idea before installing anything.
 
 Use [social-preview.png](social-preview.png) for a link card or image attachment. Its editable source is [social-preview.svg](social-preview.svg). All displayed lesson content is fictional.

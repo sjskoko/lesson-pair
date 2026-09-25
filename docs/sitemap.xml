@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://sjskoko.github.io/lesson-pair/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sjskoko.github.io/lesson-pair/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sjskoko.github.io/lesson-pair/ko/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sjskoko.github.io/lesson-pair/" />
+  </url>
+  <url>
+    <loc>https://sjskoko.github.io/lesson-pair/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sjskoko.github.io/lesson-pair/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sjskoko.github.io/lesson-pair/ko/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sjskoko.github.io/lesson-pair/" />
+  </url>
+  <url>
+    <loc>https://sjskoko.github.io/lesson-pair/guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sjskoko.github.io/lesson-pair/guide/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sjskoko.github.io/lesson-pair/ko/guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sjskoko.github.io/lesson-pair/guide/" />
+  </url>
+  <url>
+    <loc>https://sjskoko.github.io/lesson-pair/ko/guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sjskoko.github.io/lesson-pair/guide/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sjskoko.github.io/lesson-pair/ko/guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sjskoko.github.io/lesson-pair/guide/" />
+  </url>
+</urlset>
