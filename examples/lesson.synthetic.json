@@ -1,0 +1,35 @@
+{
+  "synthetic": true,
+  "topic": "Why urban trees matter — fictional practice material",
+  "session": 1,
+  "lesson_date": "2030-01-15",
+  "organized_date": "2030-01-16",
+  "video_url": null,
+  "summary": "Trees can make a city more comfortable. This is original fictional sample material, not a transcript of a real video.",
+  "segments": [
+    {
+      "title": "01 · A cooler street",
+      "original": "Trees provide shade on hot days. They also give birds a place to rest.",
+      "translation": "나무는 더운 날 그늘을 제공합니다. 새들에게 쉴 곳도 제공합니다.",
+      "grammar": "provide + 명사: Trees provide shade. / a place to + 동사: a place to rest."
+    }
+  ],
+  "learner_original": "Trees gives shade. I think city need more tree. They also...",
+  "teacher_trace": "Trees gives → Trees give",
+  "teacher_notes": "Fictional teacher note: check subject–verb agreement and plural nouns.",
+  "corrections": [
+    {"original": "Trees gives shade.", "corrected": "Trees give shade.", "reason": "Trees는 복수 주어이므로 give를 사용합니다.", "source": "Synthetic teacher feedback"},
+    {"original": "I think city need more tree.", "corrected": "I think cities need more trees.", "reason": "여러 도시와 나무를 일반적으로 가리키는 예시입니다. 실제 의도에 따라 단수형도 가능합니다.", "source": "Synthetic AI suggestion"},
+    {"original": "They also...", "corrected": "Meaning unresolved — ask the learner.", "reason": "미완성 문장의 뜻을 임의로 채우지 않습니다.", "source": "Unresolved"}
+  ],
+  "grammar": [
+    {"chunk": "provide shade", "rule": "provide 다음에 제공하는 대상을 바로 씁니다.", "example": "Trees provide shade."},
+    {"chunk": "a place to rest", "rule": "to rest가 어떤 장소인지 설명합니다.", "example": "Birds need a place to rest."}
+  ],
+  "chunks": ["Trees provide shade.", "Birds need a place to rest.", "I think cities need more trees."],
+  "exercises": [
+    {"question": "나무는 그늘을 제공합니다.", "answer": "Trees provide shade."},
+    {"question": "새들은 쉴 곳이 필요합니다.", "answer": "Birds need a place to rest."}
+  ],
+  "questions": ["What did you mean by 'They also...'?", "Were you describing one city or cities in general?"]
+}

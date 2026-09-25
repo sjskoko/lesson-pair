@@ -1,0 +1,14 @@
+name: Improvement idea
+description: Suggest a study workflow, language, or formatting improvement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What learning or workflow problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: A fictional example
+      description: Please do not include personal records or private links.

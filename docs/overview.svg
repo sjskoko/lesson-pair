@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" role="img" aria-labelledby="title desc">
+<title id="title">LessonPair</title><desc id="desc">One session links a preparation page with a review page. Watch, talk, and rewrite.</desc>
+<rect width="1200" height="540" rx="28" fill="#0c1424"/>
+<circle cx="1110" cy="40" r="240" fill="#132842"/>
+<text x="64" y="75" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#64dfc0">AN OPEN AGENT SKILL</text>
+<text x="64" y="141" font-family="Arial,sans-serif" font-size="58" font-weight="700" fill="#f6f8fc">One lesson. Two connected pages.</text>
+<text x="64" y="180" font-family="Arial,sans-serif" font-size="22" fill="#aabbd2">Keep the source, the conversation, and the next attempt together.</text>
+<rect x="64" y="227" width="500" height="226" rx="20" fill="#f7f9ff"/>
+<rect x="636" y="227" width="500" height="226" rx="20" fill="#effcf7"/>
+<rect x="88" y="252" width="48" height="40" rx="10" fill="#dce7ff"/>
+<text x="100" y="280" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#295cca">01</text>
+<text x="154" y="280" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#182943">PREPARE</text>
+<text x="91" y="330" font-family="Arial,sans-serif" font-size="21" fill="#425575">Video + source material</text>
+<text x="91" y="368" font-family="Arial,sans-serif" font-size="21" fill="#425575">Grammar in context</text>
+<text x="91" y="406" font-family="Arial,sans-serif" font-size="21" fill="#425575">Three phrases to try</text>
+<path d="M580 340h40m-10-10 10 10-10 10" fill="none" stroke="#64dfc0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="660" y="252" width="48" height="40" rx="10" fill="#c4f2df"/>
+<text x="672" y="280" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#16714f">02</text>
+<text x="726" y="280" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#163d30">REVIEW</text>
+<text x="663" y="330" font-family="Arial,sans-serif" font-size="21" fill="#426354">Original writing + feedback</text>
+<text x="663" y="368" font-family="Arial,sans-serif" font-size="21" fill="#426354">Corrections with attribution</text>
+<text x="663" y="406" font-family="Arial,sans-serif" font-size="21" fill="#426354">Recall + timed rewrite</text>
+<text x="64" y="503" font-family="Arial,sans-serif" font-size="18" fill="#aabbd2">NOTION WORKFLOW · OFFLINE FORMATTER · MIT LICENSE</text>
+<text x="1046" y="503" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#64dfc0">LessonPair</text>
+</svg>

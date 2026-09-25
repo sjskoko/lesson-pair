@@ -1,0 +1,7 @@
+interface:
+  display_name: "LessonPair · 영어 수업 기록"
+  short_description: "영상 예습과 수업·복습 기록을 한 세트로 연결해 노션에 정리합니다"
+  default_prompt: "Use $lesson-pair to organize this English lesson into paired preparation and review pages in Notion."
+
+policy:
+  allow_implicit_invocation: true
