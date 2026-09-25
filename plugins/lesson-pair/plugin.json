@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "lesson-pair",
+  "version": "0.2.0",
+  "homepage": "https://sjskoko.github.io/lesson-pair/",
+  "repository": "https://github.com/sjskoko/lesson-pair",
+  "license": "MIT",
+  "keywords": [
+    "english-learning",
+    "video-learning",
+    "chatgpt",
+    "agent-skills",
+    "bring-your-own-ai"
+  ],
+  "description": "Explain a video you love in your own English. Guided practice, your own before/after, optional Notion."
+}

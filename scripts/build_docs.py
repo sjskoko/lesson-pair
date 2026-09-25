@@ -10,10 +10,10 @@ BASE = "https://sjskoko.github.io/lesson-pair/"
 REPO = "https://github.com/sjskoko/lesson-pair"
 RAW = "https://raw.githubusercontent.com/sjskoko/lesson-pair/main/"
 PAGES = [
-    ("", "en", "site/en.html", "LessonPair — Notion English Lesson Notes & AI Skill", "Pair video preparation, English writing corrections, and recall practice in Notion. Open-source agent skill, synthetic demo, and offline Python formatter.", "ko/"),
-    ("ko/", "ko", "site/ko.html", "LessonPair — 노션 영어 학습·수업 정리 AI 스킬", "영상 예습부터 영어 작문 교정과 복습까지 노션 페이지 두 개로 연결하세요. LessonPair 오픈소스 스킬의 가상 예시와 설치 방법을 확인하세요.", ""),
-    ("guide/", "en", "site/guide.html", "Install LessonPair — Notion English Learning Skill Guide", "Install the LessonPair agent skill, set up paired Notion lesson pages, or run the offline Python demo. Includes privacy guidance and AI-readable source links.", "ko/guide/"),
-    ("ko/guide/", "ko", "site/guide.ko.html", "LessonPair 설치 가이드 — 노션 영어 수업·복습 정리", "Codex·ChatGPT Work용 LessonPair 설치, 노션 수업 구조, Python 로컬 실행, 표 오류 해결 방법과 AI가 읽을 공개 자료를 안내합니다.", "guide/"),
+    ("", "en", "site/en.html", "LessonPair — Learn English from Videos with Your Own AI", "Turn one English video into guided practice and your own before-and-after answers. Open-source ChatGPT/Codex skill plugin, own-AI tutor, optional Notion.", "ko/"),
+    ("ko/", "ko", "site/ko.html", "LessonPair — 좋아하는 영상을 내 영어로, AI 영어 학습", "영어 영상 하나로 짧게 대화하고 직접 다시 설명하세요. 내 답변을 비교하는 학습 스킬, ChatGPT/Codex 플러그인과 내 AI 연결 도구를 제공합니다.", ""),
+    ("guide/", "en", "site/guide.html", "Get Started — LessonPair Plugin and Bring Your Own AI", "Install the LessonPair skill plugin, load portable learning instructions, or connect your own compatible AI model. Video captions, private records, and legacy guide.", "ko/guide/"),
+    ("ko/guide/", "ko", "site/guide.ko.html", "LessonPair 시작 가이드 — ChatGPT 플러그인·내 AI 연결", "LessonPair 스킬형 플러그인 설치, 다른 AI에서 사용하기, 로컬 모델 연결과 영상 자막 입력 방법을 안내합니다. 노션 기록은 선택 사항입니다.", "guide/"),
 ]
 
 def build():
@@ -27,7 +27,7 @@ def build():
         url = BASE + path
         schema = {"@context": "https://schema.org", "@graph": [
             {"@type": "WebPage", "@id": url + "#page", "url": url, "name": title, "description": description, "inLanguage": lang, "about": {"@id": BASE + "#software"}},
-            {"@type": "SoftwareSourceCode", "@id": BASE + "#software", "name": "LessonPair", "description": "Open-source agent skill and offline Python formatter for paired Notion English lesson notes.", "url": BASE, "codeRepository": REPO, "license": REPO + "/blob/main/LICENSE", "programmingLanguage": "Python", "runtimePlatform": "Python 3.10+", "inLanguage": ["en", "ko"], "keywords": ["Notion", "English learning", "lesson notes", "Agent Skills"], "image": BASE + "social-preview.png"}]}
+            {"@type": "SoftwareSourceCode", "@id": BASE + "#software", "name": "LessonPair", "description": "Open-source English video learning skill, ChatGPT/Codex plugin, and tutor for user-configured AI endpoints.", "url": BASE, "codeRepository": REPO, "license": REPO + "/blob/main/LICENSE", "programmingLanguage": "Python", "runtimePlatform": "Python 3.10+", "inLanguage": ["en", "ko"], "keywords": ["English learning", "video learning", "ChatGPT plugin", "bring your own AI", "Agent Skills"], "image": BASE + "social-preview.png"}]}
         body = (ROOT / source).read_text(encoding="utf-8")
         output["docs/" + path + "index.html"] = f'''<!doctype html>
 <html lang="{lang}">
@@ -56,7 +56,7 @@ def build():
 <meta property="og:image" content="{BASE}social-preview.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="LessonPair: turn your English mistakes into your next practice session">
+<meta property="og:image:alt" content="LessonPair: one video, your first answer, your own retry">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(title, quote=True)}">
 <meta name="twitter:description" content="{html.escape(description, quote=True)}">
@@ -90,26 +90,30 @@ def build():
     output["docs/favicon.svg"] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#d6f879"/><path d="M14 17v30h16v-7H21V17zm22 0v30h7V36h5c15 0 15-19 0-19zm7 7h5c5 0 5 5 0 5h-5z" fill="#0b1120"/></svg>\n'
     index = f'''# LessonPair
 
-> Open-source agent skill for Notion English lesson notes: pair video preparation with original writing, attributed corrections, and recall practice. Includes a standard-library Python formatter.
+> Open-source English video learning skill and ChatGPT/Codex plugin: first attempt, targeted practice, learner retry, evidence-based comparison, and later recall. Includes a local tutor for user-configured compatible AI endpoints. Notion is optional.
 
 This is a project-specific index at {BASE}llms.txt. It is a navigation aid for direct retrieval, not a crawler-control file or an automatic installation mechanism.
 
 ## Start here
 - [English overview]({BASE}): purpose, fictional demo, workflow, and FAQ.
-- [한국어 소개]({BASE}ko/): 노션 영어 학습 스킬 소개와 가상 예시.
-- [Installation guide]({BASE}guide/): host options, Notion structure, offline use, privacy.
-- [한국어 설치 가이드]({BASE}ko/guide/): 설치·수업 구조·표 오류 해결.
+- [한국어 소개]({BASE}ko/): 영어 영상 학습 스킬·플러그인 소개와 가상 예시.
+- [Installation guide]({BASE}guide/): plugin installation, portable AI use, local model connection, privacy.
+- [한국어 설치 가이드]({BASE}ko/guide/): 플러그인 설치·내 AI 연결·개인 기록.
 - [Repository]({REPO}): canonical source and contributions.
 
 ## Skill source (read progressively)
 - [SKILL.md]({RAW}skills/lesson-pair/SKILL.md): entry point and workflow selection.
+- [Guided session]({RAW}skills/lesson-pair/references/guided-session.md): one-question tutoring and learner-owned before/after.
+- [Source access]({RAW}skills/lesson-pair/references/source-access.md): captions, excerpts, and missing-source behavior.
+- [Own AI]({RAW}skills/lesson-pair/references/own-ai.md): endpoint configuration, controls, privacy and costs.
+- [Plugin setup]({RAW}docs/plugin.md): repository marketplace and actual distribution status.
 - [Notion workflow]({RAW}skills/lesson-pair/references/notion-workflow.md): setup, writes, idempotence, verification.
 - [Page templates]({RAW}skills/lesson-pair/references/page-templates.md): preparation and review page structure.
 - [Python formatter]({RAW}skills/lesson-pair/scripts/lesson_pair.py): render supplied JSON; check Notion table markup.
 
 ## Examples and project facts
 - [Synthetic input]({RAW}examples/lesson.synthetic.json): fictional material, never a real learner record.
-- [Clickable demo]({REPO}/blob/main/examples/demo.md): paired pages and hidden answers on GitHub.
+- [Clickable demo]({REPO}/blob/main/examples/guided-demo.md): a fictional guided learning conversation on GitHub.
 - [Plain-text reference bundle]({BASE}llms-full.txt): overview, installation, and skill references in one file.
 - [Project metadata]({BASE}project.json): stable URLs, requirements, license, and limitations.
 - [MIT license]({RAW}LICENSE)
@@ -118,15 +122,16 @@ AI execution still uses model tokens and the host's limits. Private Notion write
 '''
     output["docs/llms.txt"] = index
     output["llms.txt"] = index
-    refs = ["README.md", "README.ko.md", "docs/usage.md", "skills/lesson-pair/SKILL.md", "skills/lesson-pair/references/notion-workflow.md", "skills/lesson-pair/references/page-templates.md"]
+    refs = ["README.md", "README.ko.md", "docs/usage.md", "skills/lesson-pair/SKILL.md", "skills/lesson-pair/references/guided-session.md", "skills/lesson-pair/references/source-access.md", "skills/lesson-pair/references/own-ai.md", "docs/plugin.md"]
     output["docs/llms-full.txt"] = "# LessonPair — public reference bundle\n\nGenerated from repository sources. For the smallest context, start with llms.txt and fetch only relevant files. All example material is synthetic.\n\n" + "\n\n".join(f"---\nSource: {RAW}{p}\n\n{(ROOT / p).read_text(encoding='utf-8').strip()}" for p in refs) + "\n"
     output["docs/project.json"] = json.dumps({
-        "name": "LessonPair", "slug": "lesson-pair", "description": "Open-source Notion English lesson notes skill with paired preparation and review pages.",
+        "name": "LessonPair", "slug": "lesson-pair", "description": "Learn English from a video using your own AI: guided practice and learner-written before/after.",
+        "version": "0.2.0", "plugin_manifest": RAW + "plugins/lesson-pair/plugin.json", "marketplace": RAW + ".agents/plugins/marketplace.json",
         "homepage": BASE, "repository": REPO, "license": "MIT", "languages": ["en", "ko"],
         "skill_entrypoint": RAW + "skills/lesson-pair/SKILL.md", "install_directory": REPO + "/tree/main/skills/lesson-pair",
         "documentation": {"en": BASE + "guide/", "ko": BASE + "ko/guide/", "index": BASE + "llms.txt", "full_text": BASE + "llms-full.txt"},
-        "requirements": {"offline_formatter": "Python >= 3.10", "ai_workflow": "Compatible skill host; authorized Notion integration for page writes"},
-        "limitations": ["No bundled transcription or automatic speech scoring", "Offline formatter does not generate corrections or write to Notion", "AI execution uses model tokens and host limits", "All public examples are synthetic"]
+        "requirements": {"offline_formatter": "Python >= 3.10", "ai_workflow": "Compatible skill/plugin host, or Python 3.10+ and an OpenAI-compatible endpoint; Notion optional"},
+        "limitations": ["Captions or a supplied transcript are required; no audio transcription or automatic speech scoring", "Not listed in OpenAI public plugin directory", "Host installation and live providers require separate verification", "Offline formatter does not generate corrections or write to Notion", "AI execution uses model tokens and host limits", "All public examples are synthetic"]
     }, ensure_ascii=False, indent=2) + "\n"
     return output
 

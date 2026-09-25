@@ -38,7 +38,7 @@ Publishing the sitemap is not evidence that it was submitted, crawled, or indexe
 
 ## Measure real outcomes
 
-Use available GitHub traffic, referrers, clones, and stars; use the search provider's performance reports after property verification. Record the measurement window and baseline before comparing changes. Check a few relevant queries such as “LessonPair”, “Notion English lesson notes”, and “노션 영어 수업 정리 스킬”, while remembering search results vary and `site:` is not a complete indexing report.
+Use available GitHub traffic, referrers, clones, and stars; use the search provider's performance reports after property verification. Record the measurement window and baseline before comparing changes. Check a few relevant queries such as “LessonPair”, “learn English from videos with AI”, “ChatGPT English learning plugin”, and “영어 영상 AI 학습”, while remembering search results vary and `site:` is not a complete indexing report.
 
 Share the working demo and a concrete workflow problem where community rules permit. Do not manufacture stars, reviews, third-party mentions, or keyword pages. Public feedback and examples must be synthetic; never include learner records or private screenshots.
 

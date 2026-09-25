@@ -1,68 +1,69 @@
-# LessonPair — 노션 영어 학습·수업 정리 스킬
+# LessonPair — 좋아하는 영상을, 내 영어로 설명하기
 
-## 교정받은 영어, 다음 수업에서도 꺼내 쓰세요.
+**영상 하나를 고르고, 짧게 대화하고, 내가 쓴 두 답변을 비교하세요.**
 
-**수업이 끝나면 쌓이는 작문과 피드백. 이번에는 다시 써보는 문제까지 연결합니다.**
+영어 원문 영상에서 시작하는 오픈소스 영어 학습 스킬과 ChatGPT/Codex 플러그인입니다. 처음 말하지 못한 표현을 중심으로 연습한 뒤, 직접 다시 설명하도록 안내합니다.
 
-[![원문에서 교정, 다시 쓰기로 이어지는 가상 예시](docs/overview.svg)](examples/demo.md)
+[웹사이트·예시](https://sjskoko.github.io/lesson-pair/ko/) · [설치 가이드](https://sjskoko.github.io/lesson-pair/ko/guide/) · [English](README.md) · [레거시](docs/legacy.md)
 
-**[한국어 홈페이지·예시 체험](https://sjskoko.github.io/lesson-pair/ko/)** · [GitHub 예시](examples/demo.md) · [스킬 설치](#gptcodex에서-사용하기) · [English](README.md)
+## 사용자는 세 가지만 합니다
 
-| 내가 쓴 문장 | 교정한 문장 | 다음 연습 |
+1. **영상 선택:** 영어 영상 링크를 줍니다. 접근 가능한 자막을 사용하며, 가져올 수 없다면 자막이나 짧은 발췌를 붙여 넣습니다.
+2. **짧은 대화:** 먼저 영어 1–3문장으로 설명합니다. AI는 막힌 표현 한두 개를 골라 한 번에 질문 하나씩 연습시킵니다.
+3. **내 답변 비교:** 예시를 보지 않고 다시 설명합니다. 첫 답변과 재도전 답변을 비교하고, 나중에 다른 맥락에서 떠올려 봅니다.
+
+선생님과 노션은 선택 사항입니다. 초보자는 짧은 문장부터 시작하고, 필요할 때 힌트와 예시를 받습니다. 60초 설명은 선택 목표입니다.
+
+## AI가 고친 문장과 내 실력을 구분합니다
+
+| 첫 시도 | 집중 연습 | 재도전 |
 | --- | --- | --- |
-| Trees gives shade. | Trees **give** shade. | 정답을 가리고 “나무는 그늘을 제공합니다.” 다시 쓰기 |
+| Trees makes shade. Roots need place. | provide shade, room to grow | Trees provide shade. Their roots need room to grow. |
 
-*이 문장은 공개 데모를 위해 새로 만든 가상 자료입니다.*
+위 내용은 **가상 데모**입니다. 실제 학습에서는 두 답변 모두 사용자가 작성합니다. AI가 대신 쓴 문장을 학습 성과로 표시하지 않고, 도움을 받은 답변은 그렇게 기록합니다. 이 프로그램의 학습 효과를 실험으로 입증했다는 뜻도 아닙니다.
 
-LessonPair는 영상 예습과 수업 후 작문·피드백을 **서로 연결된 노션 페이지 두 개**로 정리하는 오픈소스 스킬입니다. 원문을 남기고, 달라진 부분을 확인하고, 답을 가린 채 다시 써보도록 구성합니다.
+## 내 AI로 시작하기
 
-공개 예시는 GitHub에서 바로 펼쳐볼 수 있습니다. 노션을 연결하거나 계정을 만들 필요는 없습니다. 실제 수업을 AI로 정리하고 노션에 저장하려면 스킬을 지원하는 도구와 노션 연결이 필요합니다.
+- **ChatGPT/Codex:** 지원되는 저장소 마켓플레이스나 워크스페이스 경로로 스킬형 플러그인을 설치합니다. 현재 호스트의 AI를 사용하므로 별도 API 키가 필요하지 않습니다. [상세 안내](docs/plugin.md)
+- **다른 AI·커스텀 GPT:** `SKILL.md`, `guided-session.md`, `source-access.md`를 첨부해 수동으로 사용합니다. 네이티브 플러그인 설치와는 다릅니다.
+- **내 모델·API:** Python 로컬 도구에 OpenAI 호환 엔드포인트를 설정합니다. 로컬 Ollama 서버도 같은 API 형식으로 연결할 수 있습니다. [설정 안내](skills/lesson-pair/references/own-ai.md)
 
-**다음 수업에 써보고 싶다면 [설치 방법](docs/usage.md)을 확인하세요.** 나중에 찾기 쉽게 Star로 저장하거나, [불편한 점 한 가지](https://github.com/sjskoko/lesson-pair/issues/new?template=feature_request.yml)를 알려주세요.
+스킬을 불러온 뒤 이렇게 시작하세요:
 
-## 수업 하나가 이렇게 남습니다
+> LessonPair로 이 영어 영상을 내 말로 설명하도록 도와줘: [링크]. 자막을 가져올 수 없으면 내게 발췌를 요청해. 한 번에 작은 질문 하나씩 하고, 내가 답하기 전에 모범 답안을 먼저 보여주지 마. 설명은 한국어로 해 줘.
 
-| ① 영상 예습 자료 | ② 수업·복습 기록 |
-| --- | --- |
-| 영상·제공된 자막·구간별 해석 | 직접 쓴 작문 원본·선생님 메모 |
-| 표현과 문법 메모 | 문장별 교정·문법 설명 |
-| 수업에서 사용할 표현 3개 | 정답을 가린 문제·재작문 |
+Codex 저장소 마켓플레이스 추가:
 
-원본은 보존하고, 선생님 피드백과 AI 보완을 구분합니다. 기존 수업은 이어서 수정하며, 미완성 문장의 의미나 점수·복습 완료 여부를 임의로 채우지 않습니다. 수업 목록·복습 대기·달력 보기를 활용하도록 안내합니다.
+```bash
+codex plugin marketplace add sjskoko/lesson-pair --ref main
+```
 
-## GPT·Codex에서 사용하기
+추가 후 지원되는 플러그인 화면에서 `lesson-pair`를 설치합니다. **공개 OpenAI 플러그인 디렉터리에 등록된 상태는 아닙니다.** ChatGPT의 설치 경로와 사용 가능 여부는 클라이언트·워크스페이스에 따라 달라집니다.
 
-스킬 설치를 지원하는 환경에서 다음 폴더를 설치합니다.
+## 로컬 실행 예시
 
-`https://github.com/sjskoko/lesson-pair/tree/main/skills/lesson-pair`
-
-설치 후 `@lesson-pair` 또는 호스트에서 지원하는 `$lesson-pair`로 호출합니다.
-
-> 이 수업을 LessonPair로 정리해줘. 기존 영상 예습 자료와 연결하고, 내 작문 원본·선생님 메모를 보존해줘. 교정과 복습 문제도 추가해줘.
-
-공개 저장소를 읽는 데 별도의 GitHub 접근 토큰은 필요하지 않습니다. **AI가 교정·정리할 때는 모델 토큰과 이용 한도가 적용**되며, 개인 노션에 저장하려면 노션 연결 권한이 필요합니다. 일반 커스텀 GPT가 이 저장소를 자동 설치하는 것은 아닙니다. 자세한 내용은 [사용 가이드](docs/usage.md)를 참고하세요.
-
-## 로컬 도구 실행하기
-
-Python 3.10 이상에서 실행합니다. 추가 패키지와 API 키가 필요하지 않습니다.
+Python 3.10 이상과 별도로 실행한 모델 서버가 필요합니다.
 
 ```bash
 git clone https://github.com/sjskoko/lesson-pair.git
 cd lesson-pair
-python3 skills/lesson-pair/scripts/lesson_pair.py render examples/lesson.synthetic.json --out output/demo
-python3 skills/lesson-pair/scripts/lesson_pair.py check output/demo/02-review.notion.md
+export LESSONPAIR_BASE_URL='http://localhost:11434/v1'
+export LESSONPAIR_MODEL='YOUR-INSTALLED-MODEL'
+python skills/lesson-pair/scripts/learn.py start --source examples/transcript.synthetic.txt --language Korean
+python skills/lesson-pair/scripts/learn.py run
+python skills/lesson-pair/scripts/learn.py export
 ```
 
-이 명령은 입력된 가상 자료를 로컬 초안으로 정리합니다. AI 교정이나 노션 저장은 실행하지 않습니다. 노션용 Markdown은 연결 도구를 통한 작성용이며, 일반 편집기에 붙여 넣으면 표 태그가 그대로 표시될 수 있습니다.
+원격 API는 HTTPS 주소와 모델을 설정하고, 필요한 키는 환경변수 `LESSONPAIR_API_KEY`로만 전달합니다. 채팅·웹페이지·공개 저장소에 키를 넣지 마세요. HTTP 연동은 로컬 모의 서버로 검증하며, 실제 모델별 동작과 수업 품질은 별도 확인이 필요합니다.
 
-## 개인정보와 공유
+선택적으로 `yt-dlp`를 설치하면 `start --url YOUTUBE_URL`로 영어 자막을 시도합니다. 자동 음성 전사 기능은 아니며, 자막이 없거나 접근이 막히면 파일을 제공해야 합니다. `/hint`, `/example`, `/quit`를 사용할 수 있고, API 오류 후에도 답변이 저장되어 이어서 진행할 수 있습니다.
 
-공개 예시는 모두 새로 만든 가상 자료입니다. 실제 학습 기록·연락처·개인 노션 주소는 포함하지 않습니다. 자신의 학습 기록은 공개 저장소에 올리지 마세요.
+## 기록·비용·레거시
 
-[공유용 소개문과 이미지](docs/launch.md) · [기여 안내](CONTRIBUTING.md) · [MIT 라이선스](LICENSE)
+기록은 기본적으로 Git에서 제외된 `private/`에 저장됩니다. AI 사용 시에는 원문과 답변이 선택한 제공자에게 전달됩니다. 노션 연결은 선택 사항이며 기존 예습·수업 기록 쌍 구조와 표 복구 기능은 유지합니다.
 
-## 문서와 AI 진입점
+코드는 MIT 라이선스로 무료입니다. **AI 실행에는 토큰·연산·호스트 이용 한도가 적용됩니다.** 발음 평가, 자동 알림, 학습 효과 보장은 제공하지 않습니다. 공개 예시는 모두 새로 만든 가상 자료이며 실제 학습 기록과 개인정보는 포함하지 않습니다.
 
-[한국어 설치 가이드](https://sjskoko.github.io/lesson-pair/ko/guide/) · [English website](https://sjskoko.github.io/lesson-pair/) · [AI용 문서 색인](https://sjskoko.github.io/lesson-pair/llms.txt) · [스킬 원문](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/SKILL.md)
+이전 버전은 [`legacy/english`](https://github.com/sjskoko/lesson-pair/tree/legacy/english)에 보존했습니다. 기존 JSON 포맷과 오프라인 정리 도구도 계속 사용할 수 있습니다. [변경 내역](CHANGELOG.md)
 
-AI는 짧은 스킬 원문부터 읽고 필요한 참고 문서만 가져올 수 있습니다. 텍스트 색인이 검색 순위·AI 인용·자동 설치를 보장하지는 않습니다.
+유용하다면 GitHub Star로 다시 찾아오세요. 피드백에는 실제 개인 기록 대신 가상 예시를 사용해 주세요.

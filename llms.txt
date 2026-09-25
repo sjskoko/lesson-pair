@@ -1,25 +1,29 @@
 # LessonPair
 
-> Open-source agent skill for Notion English lesson notes: pair video preparation with original writing, attributed corrections, and recall practice. Includes a standard-library Python formatter.
+> Open-source English video learning skill and ChatGPT/Codex plugin: first attempt, targeted practice, learner retry, evidence-based comparison, and later recall. Includes a local tutor for user-configured compatible AI endpoints. Notion is optional.
 
 This is a project-specific index at https://sjskoko.github.io/lesson-pair/llms.txt. It is a navigation aid for direct retrieval, not a crawler-control file or an automatic installation mechanism.
 
 ## Start here
 - [English overview](https://sjskoko.github.io/lesson-pair/): purpose, fictional demo, workflow, and FAQ.
-- [한국어 소개](https://sjskoko.github.io/lesson-pair/ko/): 노션 영어 학습 스킬 소개와 가상 예시.
-- [Installation guide](https://sjskoko.github.io/lesson-pair/guide/): host options, Notion structure, offline use, privacy.
-- [한국어 설치 가이드](https://sjskoko.github.io/lesson-pair/ko/guide/): 설치·수업 구조·표 오류 해결.
+- [한국어 소개](https://sjskoko.github.io/lesson-pair/ko/): 영어 영상 학습 스킬·플러그인 소개와 가상 예시.
+- [Installation guide](https://sjskoko.github.io/lesson-pair/guide/): plugin installation, portable AI use, local model connection, privacy.
+- [한국어 설치 가이드](https://sjskoko.github.io/lesson-pair/ko/guide/): 플러그인 설치·내 AI 연결·개인 기록.
 - [Repository](https://github.com/sjskoko/lesson-pair): canonical source and contributions.
 
 ## Skill source (read progressively)
 - [SKILL.md](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/SKILL.md): entry point and workflow selection.
+- [Guided session](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/references/guided-session.md): one-question tutoring and learner-owned before/after.
+- [Source access](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/references/source-access.md): captions, excerpts, and missing-source behavior.
+- [Own AI](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/references/own-ai.md): endpoint configuration, controls, privacy and costs.
+- [Plugin setup](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/docs/plugin.md): repository marketplace and actual distribution status.
 - [Notion workflow](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/references/notion-workflow.md): setup, writes, idempotence, verification.
 - [Page templates](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/references/page-templates.md): preparation and review page structure.
 - [Python formatter](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/scripts/lesson_pair.py): render supplied JSON; check Notion table markup.
 
 ## Examples and project facts
 - [Synthetic input](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/examples/lesson.synthetic.json): fictional material, never a real learner record.
-- [Clickable demo](https://github.com/sjskoko/lesson-pair/blob/main/examples/demo.md): paired pages and hidden answers on GitHub.
+- [Clickable demo](https://github.com/sjskoko/lesson-pair/blob/main/examples/guided-demo.md): a fictional guided learning conversation on GitHub.
 - [Plain-text reference bundle](https://sjskoko.github.io/lesson-pair/llms-full.txt): overview, installation, and skill references in one file.
 - [Project metadata](https://sjskoko.github.io/lesson-pair/project.json): stable URLs, requirements, license, and limitations.
 - [MIT license](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/LICENSE)

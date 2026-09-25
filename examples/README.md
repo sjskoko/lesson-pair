@@ -1,3 +1,9 @@
+# Synthetic examples only
+
+Start with [the guided video-learning demo](guided-demo.md) and `transcript.synthetic.txt`. Both are newly fabricated; no real video or learner is represented.
+
+The paired-note examples below are retained for legacy formatter compatibility. The legacy tool command is in [usage](../docs/usage.md).
+
 # A completely fictional lesson
 
 **[Open the clickable demo — no installation](demo.md).** Follow the paired sections and reveal the practice answers right on GitHub.

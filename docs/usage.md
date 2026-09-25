@@ -1,63 +1,38 @@
-# Installation and everyday use
+# Start with one English video
 
-## Choose your environment
+## Guided chat
 
-| Environment | Route | Limitation |
-| --- | --- | --- |
-| Codex with a skill installer | Install `skills/lesson-pair` from this public repository | A host with skill support is required |
-| ChatGPT Work with skill creation | Ask the skill creator to install the same folder | Account/workspace availability can differ |
-| Another Agent Skills-compatible host | Follow its directory installation instructions | Tool names and Notion access are host-specific |
-| A custom GPT without a skill loader | Supply SKILL.md and the references as instructions/knowledge, or use the portable prompt below | This is manual adaptation, not an installed executable skill |
-| No AI tools | Run the Python formatter on supplied JSON | No automatic language understanding or Notion writes |
+Install the [LessonPair plugin](plugin.md) or load the portable skill files. Give the assistant a video URL and your explanation language. It uses accessible captions or asks for a transcript/excerpt; then it guides one small action at a time.
 
-The public skill entry point is [SKILL.md](../skills/lesson-pair/SKILL.md). Fetch it only from a trusted repository version; review changes before installing. No custom server, access-token proxy, or paid API is bundled.
+First explain the main idea in 1–3 English sentences. Practice an expression that blocked you. Look away from examples and explain it again. Compare your actual answers. A later prompt reuses the expression in a new context.
 
-## Portable prompt for an assistant
+The first attempt and retry are learner-written. AI feedback is labeled, help is recorded, and missing work stays unfinished. Typed answers do not support pronunciation scoring.
 
-```text
-Organize my language lesson into two linked pages: preparation and review.
-Use LessonPair's SKILL.md and read its references only as needed.
-Preserve my original writing and teacher feedback verbatim. Label your own
-corrections. Do not invent a transcript, missing meaning, score, or completion.
-Reuse my existing Notion session if present and verify saved tables and links.
-If you cannot write to Notion, give me drafts and clearly say they are unsaved.
-```
+## Own AI endpoint
 
-This prompt does not grant access to private pages. Connect Notion through your assistant's supported authentication flow. Never place credentials in the prompt or repository. If your custom GPT cannot fetch the public files, supply their contents yourself; availability of browsing, knowledge files, and actions depends on that product.
+See [the setup guide](../skills/lesson-pair/references/own-ai.md). The Python terminal tutor supports a basic OpenAI-compatible Chat Completions contract. Use a local model server or an HTTPS provider you trust. Environment variables configure the model; keys are never stored in session files.
 
-## A lesson from start to finish
+Start from a `.txt`, `.vtt`, or `.srt` transcript. YouTube captions can be attempted using optional yt-dlp. If captions are blocked or absent, supply a file. The tool does not download video, transcribe audio, or bypass access controls.
 
-1. Give the assistant a video link and an available transcript. It prepares page ①.
-2. During the lesson, write and talk in your own words.
-3. Paste your original writing and teacher notes with the session number and date.
-4. The assistant creates or updates page ② and pairs it with page ① under one session.
-5. Complete the hidden-answer exercise and rewrite without looking at the correction.
-6. Mark completion yourself. Set your next review date; a date is not automatically a reminder.
+Default output is `private/session.json`; export produces `private/review.md`. Both paths are ignored by the repository. Use `--session` for a different session, and `/quit` to pause. Existing sessions are never silently overwritten. Failed AI responses leave a pending task for resume.
 
-## Local JSON format
+## Save to Notion, optionally
 
-Use [the synthetic example](../examples/lesson.synthetic.json) as the input shape.
+Ask your authorized, connected assistant to save the session. Keep one parent session with two linked parts: source/practice and attempts/review. Preserve originals and teacher notes in their own sections. [Notion workflow](../skills/lesson-pair/references/notion-workflow.md) includes lookup, idempotent writes, real table handling and read-back checks.
 
-| Field | Requirement |
-| --- | --- |
-| topic | Required nonempty string |
-| session | Optional positive integer |
-| lesson_date, organized_date | Optional YYYY-MM-DD; they remain separate |
-| video_url | Optional HTTP(S) URL, no embedded credentials |
-| learner_original, teacher_trace, teacher_notes | Original strings, not silently corrected |
-| segments | Objects with title, original, translation, grammar strings |
-| corrections | Objects with original, corrected, reason, source strings |
-| grammar | Objects with chunk, rule, example strings |
-| chunks, questions | Arrays of strings |
-| exercises | Objects with question and answer strings |
-| corrected_text | Optional rewritten text; use corrected_text_source to label attribution |
+The CLI exports Markdown and does not write to Notion itself. The plugin can use a host's authorized Notion tools, but does not bundle a Notion connector.
 
-The script validates the shape and renders what you supply. It does not determine whether corrections are accurate. Input JSON is preserved byte-for-byte as `source.json`. Keep this file private for real lessons. The renderer refuses to overwrite existing output files.
+## Legacy data
 
-## Table checking
+The original JSON formatter still runs:
 
 ```bash
-python3 skills/lesson-pair/scripts/lesson_pair.py check path/to/fetched-page.md
+python skills/lesson-pair/scripts/lesson_pair.py render examples/lesson.synthetic.json --out output/demo
+python skills/lesson-pair/scripts/lesson_pair.py check output/demo/02-review.notion.md
 ```
 
-The checker catches compact one-line table markup, escaped structural table tags, stray closing tags, and inconsistent row widths. It ignores fenced examples. It is a focused regression tool, not a complete Notion parser or visual verifier. Fetch the written Notion page and inspect the stored structure; inspect the UI if visual assurance is needed.
+See [legacy documentation](legacy.md) for the preserved snapshot and original schema guide.
+
+## Costs and data
+
+Skill code is MIT licensed. Local file formatting/export is offline. AI interpretation uses the active host or configured provider, including normal token limits and billing. The public website does not collect keys or run inference. Source text and answers sent to your model are governed by that provider's policies. Share fabricated examples only.

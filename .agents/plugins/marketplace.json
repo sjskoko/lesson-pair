@@ -1,0 +1,20 @@
+{
+  "name": "lesson-pair-marketplace",
+  "interface": {
+    "displayName": "LessonPair"
+  },
+  "plugins": [
+    {
+      "name": "lesson-pair",
+      "source": {
+        "source": "local",
+        "path": "./plugins/lesson-pair"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

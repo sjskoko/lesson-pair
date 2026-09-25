@@ -1,7 +1,10 @@
 {
   "name": "LessonPair",
   "slug": "lesson-pair",
-  "description": "Open-source Notion English lesson notes skill with paired preparation and review pages.",
+  "description": "Learn English from a video using your own AI: guided practice and learner-written before/after.",
+  "version": "0.2.0",
+  "plugin_manifest": "https://raw.githubusercontent.com/sjskoko/lesson-pair/main/plugins/lesson-pair/plugin.json",
+  "marketplace": "https://raw.githubusercontent.com/sjskoko/lesson-pair/main/.agents/plugins/marketplace.json",
   "homepage": "https://sjskoko.github.io/lesson-pair/",
   "repository": "https://github.com/sjskoko/lesson-pair",
   "license": "MIT",
@@ -19,10 +22,12 @@
   },
   "requirements": {
     "offline_formatter": "Python >= 3.10",
-    "ai_workflow": "Compatible skill host; authorized Notion integration for page writes"
+    "ai_workflow": "Compatible skill/plugin host, or Python 3.10+ and an OpenAI-compatible endpoint; Notion optional"
   },
   "limitations": [
-    "No bundled transcription or automatic speech scoring",
+    "Captions or a supplied transcript are required; no audio transcription or automatic speech scoring",
+    "Not listed in OpenAI public plugin directory",
+    "Host installation and live providers require separate verification",
     "Offline formatter does not generate corrections or write to Notion",
     "AI execution uses model tokens and host limits",
     "All public examples are synthetic"

@@ -17,3 +17,4 @@ jobs:
       - run: python skills/lesson-pair/scripts/lesson_pair.py check output/demo/02-review.notion.md
       - run: python scripts/build_docs.py --check
       - run: python scripts/check_docs.py
+      - run: python scripts/build_plugin.py --check

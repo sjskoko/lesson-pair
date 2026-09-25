@@ -1,115 +1,94 @@
-<h1 align="center">LessonPair — Notion English Lesson Notes</h1>
-<p align="center"><strong>Turn your English mistakes into your next practice session.</strong></p>
-<p align="center">An open-source agent skill for English writing corrections and recall practice in Notion.</p>
-<p align="center"><a href="examples/demo.md"><img src="docs/overview.svg" alt="Fictional example: Trees gives shade. → Trees give shade. → Rewrite it from memory. Open the clickable demo." width="920"></a></p>
-<p align="center"><strong><a href="https://sjskoko.github.io/lesson-pair/">Website & live example</a></strong> · <a href="examples/demo.md">GitHub demo</a> · <a href="#use-the-skill-with-your-assistant">Install the skill</a> · <a href="README.ko.md">한국어</a></p>
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2563eb" alt="MIT license"></a>
-  <img src="https://img.shields.io/badge/Python-3.10%2B-3776ab" alt="Python 3.10 or later">
-  <img src="https://img.shields.io/badge/runtime_dependencies-0-16a34a" alt="Zero third-party runtime dependencies">
-  <a href="https://github.com/sjskoko/lesson-pair/actions/workflows/check.yml"><img src="https://github.com/sjskoko/lesson-pair/actions/workflows/check.yml/badge.svg" alt="Checks"></a>
-</p>
+# LessonPair — turn a video you love into English you can use
 
-**Keep the sentence you wrote. See what changed. Try again with the answer hidden.** LessonPair connects a video's preparation page to your lesson's writing, feedback, and review page in Notion.
+**Watch something interesting. Explain it in your own English. See what changed.**
 
-Designed for English study with Korean explanations. It is an open agent skill, paired page templates, and an offline formatter. A connected AI assistant handles language understanding; the Python tool formats material you supply.
+An open-source English learning skill and ChatGPT/Codex plugin that turns one English video into a short, guided conversation. Practice comes from what **you** struggled to say, and your progress card compares **your first answer with your own retry**.
 
-## See the loop in one sentence
+[Website & demo](https://sjskoko.github.io/lesson-pair/) · [Get started](#start-with-your-ai) · [한국어](README.ko.md) · [Legacy version](docs/legacy.md)
 
-*Newly written fictional material, not a learner record or a product screenshot.*
+[![Checks](https://github.com/sjskoko/lesson-pair/actions/workflows/check.yml/badge.svg)](https://github.com/sjskoko/lesson-pair/actions/workflows/check.yml)
+[![MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-| Keep the original | See the correction | Use it again |
+[![LessonPair: one video, your first answer, your own retry](docs/social-preview.svg)](https://sjskoko.github.io/lesson-pair/#demo)
+
+## One video. Three things to do.
+
+1. **Pick a video.** Provide an English video URL. The assistant uses available captions; if it cannot access them, paste a transcript or short excerpt.
+2. **Have a short conversation.** Try 1–3 sentences first. Your AI picks one or two expression gaps, asks one question at a time, and helps when you get stuck.
+3. **See your own before and after.** Explain it again. Compare the two attempts, then try a new-context recall prompt later.
+
+No teacher, Notion account, or long worksheet is required. Explanations can be in your language. A one-minute retelling is an optional goal, not an entry requirement.
+
+## What makes the pair useful?
+
+| First attempt | Practice chosen from that attempt | Learner's retry |
 | --- | --- | --- |
-| Trees gives shade. | Trees **give** shade. | Hide the answer. Write “나무는 그늘을 제공합니다.” in English. |
+| “Trees makes shade. Roots need place.” | Express “provide shade” and “room to grow”; answer one focused question. | “Trees provide shade. Their roots need room to grow.” |
 
-The [clickable sample](examples/demo.md) has linked preparation and review sections, hidden answers, and an unfinished sentence left unresolved. No account, install, or API key is needed to view it. It is a GitHub preview of the workflow; it does not connect to Notion.
+**Fictional demonstration**, not a real learner result or efficacy claim. In a real session, the learner writes both attempts. AI rewrites stay labeled as AI suggestions; an assisted retry stays labeled as assisted. [Read the guided example](examples/guided-demo.md).
 
-**Want this for your next lesson? [Install LessonPair](#use-the-skill-with-your-assistant).** Star this repository to keep it handy, or [suggest one workflow improvement](https://github.com/sjskoko/lesson-pair/issues/new?template=feature_request.yml).
+Video learning and retrieval practice are established ideas. LessonPair's product focus is the small, personal loop connecting a source to a learner's expressive gaps and a visible retry. We have not demonstrated learning gains in a controlled study.
 
-## What you get
+## Start with your AI
 
-| Before the lesson | After the lesson |
+| Route | How it works |
 | --- | --- |
-| Video and available transcript | Original writing, preserved unchanged |
-| Section-by-section explanation | Teacher notes separate from AI suggestions |
-| Grammar notes in context | Correction and grammar tables |
-| Three expressions to use | Hidden-answer recall and a timed rewrite |
+| **ChatGPT / Codex plugin** | Install the skills-only plugin through a supported repository marketplace or workspace workflow. It uses your host's current AI. [Installation details](docs/plugin.md). |
+| **Another assistant / custom GPT** | Attach the portable skill and two learning references, then paste the starter prompt below. This is manual prompt use. |
+| **Your own model endpoint** | Run the local Python tutor with an OpenAI-compatible API, including a local Ollama endpoint. [Provider and privacy guide](skills/lesson-pair/references/own-ai.md). |
 
-One session connects both pages. Use Notion views for **all lessons**, **review pending**, **calendar**, and **reusable templates**.
+Starter prompt after loading the skill:
 
-## Why this exists
+> Use LessonPair to help me explain this English video in my own words: [URL]. Use available captions, or ask me for an excerpt. Give me one small question at a time. Let me answer before showing a model answer. Explain in [my language].
 
-Study materials and lesson corrections often end up in different places. LessonPair makes them a pair—and keeps the learner's original work intact. It also includes a regression checker for an easy-to-miss failure: a successful Notion write that displays literal `<table>` tags instead of a real table.
+**Codex repository marketplace:**
 
-- **Source-preserving:** keep learner writing and teacher notes; label AI additions.
-- **Repeatable:** reuse session structure without duplicating existing lessons.
-- **Honest:** no invented transcripts, grades, completed practice, or automatic reminders.
-- **Focused context:** a small skill entry point loads references only when needed.
-- **Offline utilities:** standard-library Python, no API key, telemetry, or network calls.
+```bash
+codex plugin marketplace add sjskoko/lesson-pair --ref main
+```
 
-<a id="try-it-in-60-seconds"></a>
+Then install **lesson-pair** from the added marketplace in a supported plugin interface. Adding the source alone does not install the plugin. ChatGPT availability depends on your client and workspace; this project is **not yet listed in OpenAI's public plugin directory**. [Portable files and fallback](docs/plugin.md).
 
-## Run the offline demo
+## Bring your own model
 
-Requires Python 3.10+ and Git. The example is entirely fictional.
+Python 3.10+; no third-party Python dependency for transcript-file sessions.
 
 ```bash
 git clone https://github.com/sjskoko/lesson-pair.git
 cd lesson-pair
-python3 skills/lesson-pair/scripts/lesson_pair.py render examples/lesson.synthetic.json --out output/demo
-python3 skills/lesson-pair/scripts/lesson_pair.py check output/demo/02-review.notion.md
+export LESSONPAIR_BASE_URL='http://localhost:11434/v1'
+export LESSONPAIR_MODEL='YOUR-INSTALLED-MODEL'
+python skills/lesson-pair/scripts/learn.py start --source examples/transcript.synthetic.txt
+python skills/lesson-pair/scripts/learn.py run
+python skills/lesson-pair/scripts/learn.py export
 ```
 
-Open `output/demo/session.md`. The output contains two study drafts and the byte-preserved input JSON. **This command does not call an AI model or upload anything to Notion.** `.notion.md` uses Notion MCP's enhanced Markdown; it is not guaranteed to render when pasted into the ordinary Notion editor.
+Start your local model server separately. For a remote compatible endpoint, configure its HTTPS base URL, model, and `LESSONPAIR_API_KEY` using your environment/secret manager. Never paste keys into chat, GitHub, or the website. The API contract is tested against a local stub; individual providers and model quality require their own verification.
 
-## Use the skill with your assistant
+Optional `yt-dlp` enables `start --url YOUTUBE_URL` to attempt English captions. This is caption retrieval, not automatic transcription; unavailable captions require a supplied transcript. `/hint`, `/example`, and `/quit` keep the terminal session manageable. Attempts survive failed API calls and can be resumed.
 
-Install the `skills/lesson-pair` folder using your host's skill installer. For a Codex setup with the built-in installer, ask:
+## Keep your work portable and private
 
-```text
-Use $skill-installer to install the lesson-pair skill from
-https://github.com/sjskoko/lesson-pair/tree/main/skills/lesson-pair
-```
+- Default records stay under ignored `private/`. The CLI sends source text and answers only to the model endpoint you configure. Provider policies and charges apply.
+- The plugin uses the active host AI; it includes no credential collection, server, or telemetry. The website has no API-key form.
+- Save Markdown, or ask a connected assistant to use the optional [paired Notion workflow](skills/lesson-pair/references/notion-workflow.md). Originals and feedback remain separate; existing records are not migrated automatically.
+- No bundled speech recognition, pronunciation scoring, automatic reminders, or guaranteed learning outcomes.
+- MIT-licensed code is free; AI inference still uses tokens, compute, and host/provider limits. GitHub hosting cannot make GPT usage unlimited or token-free.
+- **All public samples are fabricated.** Do not commit real sessions or transcripts, even when reporting a bug.
 
-Then, with a connected Notion integration:
+## Legacy and development
 
-```text
-Use $lesson-pair to organize this lesson in my Notion study hub.
-Pair the existing video preparation page with today's writing and feedback.
-Keep my original writing unchanged and give me a short rewrite exercise.
-```
-
-For ChatGPT Work, ask its skill creator to install from that folder. Use `@lesson-pair` where supported. Host capabilities and organization policies differ; see [the full guide](docs/usage.md). This repository is a skill package, not a hosted service or a published plugin-directory listing.
-
-## “No tokens” explained
-
-| Action | What it needs |
-| --- | --- |
-| Read or download this public repository | No GitHub personal access token for ordinary public access; provider rate limits may apply |
-| Run the local formatter/checker | Python only; no model tokens or API key |
-| Ask an AI to understand and correct a lesson | Model context/tokens and the host's normal usage limits |
-| Write private Notion pages | An authenticated Notion connection with access to those pages |
-
-An open-source license cannot remove model usage charges. Publishing here does not automatically install the skill into every GPT. [Official skill documentation](https://learn.chatgpt.com/docs/build-skills) explains the host workflow; [OpenAI's context guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) explains lazy-loaded references.
-
-## Privacy
-
-Every sample here is synthetic. No real learner records, teacher conversations, private Notion IDs, or account credentials are included. Keep your own data outside the repository or under an ignored `private/` or `local/` directory. When an assistant uses Notion, its platform and Notion process the data you authorize; the repository itself has no backend.
-
-## Development
+The previous Notion-first release is preserved on [`legacy/english`](https://github.com/sjskoko/lesson-pair/tree/legacy/english), pinned in [legacy documentation](docs/legacy.md). Its formatter and JSON format still work. The new tutor uses a separate versioned session schema.
 
 ```bash
-python3 -m unittest discover -s tests -v
+python -m unittest discover -s tests -v
+python scripts/build_plugin.py --check
+python scripts/build_docs.py --check
+python scripts/check_docs.py
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for small, useful contributions: clearer examples, additional languages, and formatting regressions. See [SECURITY.md](SECURITY.md) before reporting sensitive problems.
+Edit `skills/lesson-pair`, then run `python scripts/build_plugin.py` to update the plugin copy. See [contributing](CONTRIBUTING.md), [security](SECURITY.md), and [release notes](CHANGELOG.md).
 
-Sharing the workflow? Use the [short introductions and preview image](docs/launch.md). Share improvements and **synthetic** examples through issues—never private lesson screenshots.
+If the workflow is useful, **star it to find it again**. Share a synthetic example or one specific improvement through issues. [Shareable introduction](docs/launch.md) · [AI documentation index](https://sjskoko.github.io/lesson-pair/llms.txt)
 
-MIT licensed. Independent community project; not affiliated with OpenAI or Notion.
-
-## Documentation and AI entry points
-
-[English website](https://sjskoko.github.io/lesson-pair/) · [한국어 소개](https://sjskoko.github.io/lesson-pair/ko/) · [Setup guide](https://sjskoko.github.io/lesson-pair/guide/) · [AI document index](https://sjskoko.github.io/lesson-pair/llms.txt)
-
-For direct agent retrieval, start with [raw SKILL.md](https://raw.githubusercontent.com/sjskoko/lesson-pair/main/skills/lesson-pair/SKILL.md), then read its references only as needed. The index improves navigation; search ranking, AI citations, and installation are not guaranteed. See [documentation maintenance](docs/discovery.md).
+Independent project; not affiliated with OpenAI, Notion, Ollama, or video platforms.
