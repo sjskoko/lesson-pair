@@ -82,59 +82,72 @@ jobs:
                       return None
                   raise SystemExit(f'GitHub API request failed (HTTP {status}); no credentials logged.') from None
 
-          # Never move a tag or replace an already-published release.
+          # Reuse an existing tag only when the tested source differs solely in release automation.
           existing = api('/releases/tags/' + tag, missing_ok=True)
           ref = api('/git/ref/tags/' + tag, missing_ok=True)
-          if ref and ref['object']['sha'] != sha:
-              raise SystemExit('This version already points to another commit. Refusing to move it.')
-          if existing and not existing['draft']:
-              if not ref or existing['tag_name'] != tag:
-                  raise SystemExit('Existing release could not be verified.')
-              print('Already published and verified: ' + existing['html_url'])
-          else:
-              out = Path('dist')
-              out.mkdir(exist_ok=True)
-              archive = out / ('lesson-pair-plugin-' + tag + '.zip')
-              package = Path('plugins/lesson-pair')
-              with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as bundle:
-                  for path in sorted(package.rglob('*')):
-                      if path.is_file() and '__pycache__' not in path.parts and path.suffix != '.pyc':
-                          info = zipfile.ZipInfo(str(path.relative_to(package)), (1980, 1, 1, 0, 0, 0))
-                          info.compress_type = zipfile.ZIP_DEFLATED
-                          info.external_attr = 0o100644 << 16
-                          bundle.writestr(info, path.read_bytes())
-              digest = hashlib.sha256(archive.read_bytes()).hexdigest()
-              checksum = out / (archive.name + '.sha256')
-              checksum.write_text(digest + '  ' + archive.name + '\n')
-              notes = Path('CHANGELOG.md').read_text().split('## ' + version + '\n', 1)[1].split('\n## ', 1)[0].strip()
-              notes += '\n\n## Install\n\nSee [the plugin guide](https://github.com/' + repo + '/blob/' + tag + '/docs/plugin.md). '
-              notes += 'The attached ZIP contains the portable plugin; the repository also includes a marketplace. '
-              notes += 'Host installation and public-directory approval are separate from this release. All public examples are synthetic.\n'
-              notes += '\nVerified before publishing: 27 automated tests, plugin consistency, bilingual documentation, and legacy formatter checks.\n'
-              release = existing or api('/releases', {'tag_name': tag, 'target_commitish': sha,
-                  'name': 'LessonPair ' + tag + ' — your video, your AI, your English',
-                  'body': notes, 'draft': True, 'prerelease': False})
-              if release['target_commitish'] != sha:
-                  raise SystemExit('Existing draft targets another commit; manual review required.')
-              assets = {asset['name']: asset for asset in api('/releases/' + str(release['id']) + '/assets')}
-              for artifact in (archive, checksum):
-                  asset = assets.get(artifact.name)
-                  expected_digest = 'sha256:' + hashlib.sha256(artifact.read_bytes()).hexdigest()
-                  if asset:
-                      if asset.get('digest') != expected_digest:
-                          raise SystemExit('Existing draft asset differs; refusing to overwrite it.')
-                  else:
-                      subprocess.run(['gh', 'release', 'upload', tag, str(artifact), '--repo', repo], check=True)
+
+          def commit_for(ref):
+              obj = ref['object']
+              while obj['type'] == 'tag':
+                  obj = api('/git/tags/' + obj['sha'])['object']
+              if obj['type'] != 'commit':
+                  raise SystemExit('Release tag does not resolve to a commit.')
+              return obj['sha']
+
+          target = commit_for(ref) if ref else sha
+          if target != sha:
+              comparison = api('/compare/' + target + '...' + sha)
+              files = comparison.get('files', [])
+              if comparison['status'] not in ('ahead', 'identical') or len(files) >= 300:
+                  raise SystemExit('Existing version cannot be safely reused.')
+              if any(f['filename'] != '.github/workflows/release.yml' for f in files):
+                  raise SystemExit('Source changed since this version. Bump the version; never move its tag.')
+          if existing and existing['tag_name'] != tag:
+              raise SystemExit('Release tag mismatch.')
+          out = Path('dist')
+          out.mkdir(exist_ok=True)
+          archive = out / ('lesson-pair-plugin-' + tag + '.zip')
+          package = Path('plugins/lesson-pair')
+          with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as bundle:
+              for path in sorted(package.rglob('*')):
+                  if path.is_file() and '__pycache__' not in path.parts and path.suffix != '.pyc':
+                      info = zipfile.ZipInfo(str(path.relative_to(package)), (1980, 1, 1, 0, 0, 0))
+                      info.compress_type = zipfile.ZIP_DEFLATED
+                      info.external_attr = 0o100644 << 16
+                      bundle.writestr(info, path.read_bytes())
+          digest = hashlib.sha256(archive.read_bytes()).hexdigest()
+          checksum = out / (archive.name + '.sha256')
+          checksum.write_text(digest + '  ' + archive.name + '\n')
+          notes = Path('CHANGELOG.md').read_text().split('## ' + version + '\n', 1)[1].split('\n## ', 1)[0].strip()
+          notes += '\n\n## Install\n\nSee [the plugin guide](https://github.com/' + repo + '/blob/' + tag + '/docs/plugin.md). '
+          notes += 'The attached ZIP contains the portable plugin; the repository also includes a marketplace. '
+          notes += 'Host installation and public-directory approval are separate from this release. All public examples are synthetic.\n'
+          notes += '\nVerified before publishing: 27 automated tests, plugin consistency, bilingual documentation, and legacy formatter checks.\n'
+          release = existing or api('/releases', {'tag_name': tag, 'target_commitish': target,
+              'name': 'LessonPair ' + tag + ' — your video, your AI, your English',
+              'body': notes, 'draft': True, 'prerelease': False})
+          assets = {asset['name']: asset for asset in api('/releases/' + str(release['id']) + '/assets')}
+          for artifact in (archive, checksum):
+              asset = assets.get(artifact.name)
+              expected_digest = 'sha256:' + hashlib.sha256(artifact.read_bytes()).hexdigest()
+              if asset:
+                  if asset.get('digest') != expected_digest:
+                      raise SystemExit('Existing release asset differs; refusing to overwrite it.')
+              else:
+                  subprocess.run(['gh', 'release', 'upload', tag, str(artifact), '--repo', repo], check=True)
+          if release['draft']:
               release = api('/releases/' + str(release['id']), {'draft': False, 'make_latest': 'true'}, method='PATCH')
-              ref = api('/git/ref/tags/' + tag)
-              if ref['object']['sha'] != sha or release['draft']:
-                  raise SystemExit('Release verification failed.')
-              names = {asset['name'] for asset in api('/releases/' + str(release['id']) + '/assets')}
-              if not {archive.name, checksum.name}.issubset(names):
-                  raise SystemExit('Release assets are missing.')
-              print('Published and verified: ' + release['html_url'])
-              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
-                  summary.write('## LessonPair release\n\n[' + tag + '](' + release['html_url'] + ')\n\nPlugin SHA-256: `' + digest + '`\n')
+          ref = api('/git/ref/tags/' + tag)
+          if commit_for(ref) != target or release['draft']:
+              raise SystemExit('Release verification failed.')
+          names = {asset['name'] for asset in api('/releases/' + str(release['id']) + '/assets')}
+          if not {archive.name, checksum.name}.issubset(names):
+              raise SystemExit('Release assets are missing.')
+          print('Published and verified: ' + release['html_url'])
+          print('Verified source commit: ' + target)
+          print('Plugin archive SHA-256: ' + digest)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('## LessonPair release\n\n[' + tag + '](' + release['html_url'] + ')\n\nPlugin SHA-256: `' + digest + '`\n')
           PY
       - name: Report release result
         if: always()
